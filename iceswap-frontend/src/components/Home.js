@@ -10,16 +10,20 @@ import {
   Avatar,
   Badge,
   useColorModeValue,
+  ButtonGroup,
+  Center,
 } from "@chakra-ui/react";
 
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import SwapCard from "./Swap";
 
 export default function Home() {
   return (
     <Box>
       <Navbar />
       <Hero />
+      <SwapCard />
       <Footer />
     </Box>
   );
@@ -203,6 +207,28 @@ const Hero = () => {
           </Flex>
         </SimpleGrid>
       </Box>
+
+      <Stack direction="column" spacing={4} py={{ base: 20, md: 28 }}>
+        <Text
+          align={"center"}
+          textAlign="center"
+          color={"gray.100"}
+          fontSize={{ base: "3xl", sm: "4xl", lg: "30" }}
+        >
+          BeeSwap provides highly secured platform for token exchange and
+          top-of-the-shelf rewards for liquidity farming
+        </Text>
+        <Center>
+          <Stack direction={"row"} align="center" textAlign={"center"} py={{ base: 10, md: 18 }}>
+            <Button colorScheme="teal" variant="solid">
+              Swap
+            </Button>
+            <Button colorScheme="teal" variant="outline">
+              Liquidity
+            </Button>
+          </Stack>
+        </Center>
+      </Stack>
     </Container>
   );
 };
