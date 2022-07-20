@@ -31,6 +31,7 @@ export default function Navbar() {
         bg={useColorModeValue("#1F1933", "white")}
         color={useColorModeValue("white", "#1F1933")}
         minH={"80px"}
+        mb={-12}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
@@ -62,7 +63,7 @@ export default function Navbar() {
             fontStyle={'normal'}
             color={useColorModeValue("white", "gray.200")}
           >
-            IceSwap
+            BeeSwap
           </Text>
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "space-between", md: "end" }}>

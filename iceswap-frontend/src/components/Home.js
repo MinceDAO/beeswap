@@ -1,29 +1,26 @@
 import {
   Container,
   Stack,
-  Flex,
   Box,
-  Center,
   Heading,
   Text,
   Button,
-  Image,
-  Icon,
-  IconButton,
-  createIcon,
-  IconProps,
+  Flex,
+  SimpleGrid,
+  Avatar,
+  Badge,
   useColorModeValue,
 } from "@chakra-ui/react";
+
+import Footer from "./Footer";
 import Navbar from "./Navbar";
-
-const IMAGE = 'https://s3-alpha-sig.figma.com/img/45a7/1d85/7dfdd0593552a0460beb9bb6b831fd03?Expires=1658707200&Signature=MEwsuF5tX~j6xgZcNieX06NMpyow~yrt0rJYLT81DaoxV82KskVSfHamYYg2Phxw~ZnXL45oGejFvGYAD7ZUMQDM6QgsY4ZACO24rGiiWp973eW6hGkiZXJSksqYnLFimfs~or1hHXYiIMlBQHOH6okDT4ZYS7TzOKoZU~PIh-na3J2oUiFDlw-PZuGhIDeP8nLjlA1Az2pqHBjP49TPcFN08~G1RGkn~jbxBk8CuMZed0nV2PJ879vOOijWH1I3n7qcVoiMiFkn7aYWz6dWL6fu0yZcxxcSLyPssDiEYhikrZ3ndP-7Af6Lv9lWMkcjM-YI6F8klYN9JaSii6oIaA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
-
 
 export default function Home() {
   return (
     <Box>
       <Navbar />
       <Hero />
+      <Footer />
     </Box>
   );
 }
@@ -31,6 +28,7 @@ export default function Home() {
 const Hero = () => {
   return (
     <Container
+      mt={10}
       minH={"100vh"}
       direction={{ base: "column", md: "row" }}
       maxW={"7x1"}
@@ -40,7 +38,7 @@ const Hero = () => {
         textAlign={"center"}
         align={"center"}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
+        py={{ base: 15, md: 18 }}
       >
         <Heading
           lineHeight={1.1}
@@ -48,7 +46,9 @@ const Hero = () => {
           color={"purple.100"}
           fontSize={{ base: "3x1", sm: "4x1", lg: "50" }}
         >
-          Swap
+          <Button colorScheme="teal" variant="outline">
+            Switch to Polygon
+          </Button>
           <Text color={"gray.500"} maxW={"3x1"}>
             Enjoy secure token exchange
           </Text>
@@ -70,295 +70,139 @@ const Hero = () => {
           </Text>
         </Stack>
       </Stack>
-      <Center py={12}>
-        <Box
-            role={'group'}
-            p={6}
-            maxW={'330px'}
-            w={'full'}
-            bg={useColorModeValue('#12131a', 'gray.500')}
-            boxShadow={'2x1'}
-            rounded={'lg'}
-            pos={'relative'}
-            zIndex={1}
-            >
-            <Box 
-                rounded={'lg'}
-                mt={-12}
-                pos={'relative'}
-                height={'230px'}
-                _after={{
-                    transition: 'all .3s ease',
-                    content: '""',
-                    w: 'full',
-                    h: 'full',
-                    pos: 'absolute',
-                    top: 5,
-                    left: 0,
-                    backgroundImage: `url($IMAGE)`,
-                    filter: 'blur(15px)',
-                    zIndex: -1,
 
-                }}
-                _groupHover={{
-                    _after: {
-                        filter: 'blur(20px)',
-                    },
-                }}>
-                <Image 
-                    rounded={'lg'}
-                    height={230}
-                    width={282}
-                    objectFit={'cover'}
-                    src={IMAGE}   
-                />
-            </Box>
-            <Stack pt={10} align={'center'}>
-                <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    24h Transactions
-                </Text>
-                <Heading fontSize={'2x1'} fontFamily={'body'} fontWeight={500}>
-                    245,568
-                </Heading>
-                <Stack direction={'row'} align={'center'}>
-                    <Text fontWeight={800} fontSize={'x1'}>$570,345</Text>
-
-                </Stack>
-
-            </Stack>
-
+      <SimpleGrid
+        minChildWidth="120px"
+        spacing="40px"
+        m={2}
+        textAlign="center"
+        py={{ base: 14, md: 18 }}
+      >
+        <Box bg={"gray.600"} height="120px" boxShadow="base" p="6" rounded="md">
+          <Stack spacing={6} direction={"column"}>
+            <Heading color={"purple.100"} fontSize={{ base: "3xl", sm: "4xl" }}>
+              245,387
+            </Heading>
+            <Text color={"teal.300"}>24H Transactions</Text>
+          </Stack>
         </Box>
-        <Box
-            role={'group'}
-            p={6}
-            maxW={'330px'}
-            w={'full'}
-            bg={useColorModeValue('#12131a', 'gray.500')}
-            boxShadow={'2x1'}
-            rounded={'lg'}
-            pos={'relative'}
-            zIndex={1}
-            >
-            <Box 
-                rounded={'lg'}
-                mt={-12}
-                pos={'relative'}
-                height={'230px'}
-                _after={{
-                    transition: 'all .3s ease',
-                    content: '""',
-                    w: 'full',
-                    h: 'full',
-                    pos: 'absolute',
-                    top: 5,
-                    left: 0,
-                    backgroundImage: `url($IMAGE)`,
-                    filter: 'blur(15px)',
-                    zIndex: -1,
-
-                }}
-                _groupHover={{
-                    _after: {
-                        filter: 'blur(20px)',
-                    },
-                }}>
-                <Image 
-                    rounded={'lg'}
-                    height={230}
-                    width={282}
-                    objectFit={'cover'}
-                    src={IMAGE}   
-                />
-            </Box>
-            <Stack pt={10} align={'center'}>
-                <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    24h Transactions
-                </Text>
-                <Heading fontSize={'2x1'} fontFamily={'body'} fontWeight={500}>
-                    245,568
-                </Heading>
-                <Stack direction={'row'} align={'center'}>
-                    <Text fontWeight={800} fontSize={'x1'}>$570,345</Text>
-
-                </Stack>
-
-            </Stack>
+        <Box bg={"gray.600"} height="120px" boxShadow="base" p="6" rounded="md">
+          <Stack spacing={6} direction={"column"}>
+            <Heading color={"purple.100"} fontSize={{ base: "3xl", sm: "4xl" }}>
+              $35M
+            </Heading>
+            <Text color={"teal.300"}>24H TRADING VOLUME</Text>
+          </Stack>
         </Box>
-        <Box
-            role={'group'}
-            p={6}
-            maxW={'330px'}
-            w={'full'}
-            bg={useColorModeValue('#12131a', 'gray.500')}
-            boxShadow={'2x1'}
-            rounded={'lg'}
-            pos={'relative'}
-            zIndex={1}
-            >
-            <Box 
-                rounded={'lg'}
-                mt={-12}
-                pos={'relative'}
-                height={'230px'}
-                _after={{
-                    transition: 'all .3s ease',
-                    content: '""',
-                    w: 'full',
-                    h: 'full',
-                    pos: 'absolute',
-                    top: 5,
-                    left: 0,
-                    backgroundImage: `url($IMAGE)`,
-                    filter: 'blur(15px)',
-                    zIndex: -1,
-
-                }}
-                _groupHover={{
-                    _after: {
-                        filter: 'blur(20px)',
-                    },
-                }}>
-                <Image 
-                    rounded={'lg'}
-                    height={230}
-                    width={282}
-                    objectFit={'cover'}
-                    src={IMAGE}   
-                />
-            </Box>
-            <Stack pt={10} align={'center'}>
-                <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    24h Transactions
-                </Text>
-                <Heading fontSize={'2x1'} fontFamily={'body'} fontWeight={500}>
-                    245,568
-                </Heading>
-                <Stack direction={'row'} align={'center'}>
-                    <Text fontWeight={800} fontSize={'x1'}>$570,345</Text>
-
-                </Stack>
-
-            </Stack>
-
+        <Box bg={"gray.600"} height="120px" boxShadow="base" p="6" rounded="md">
+          <Stack spacing={6} direction={"column"}>
+            <Heading color={"purple.100"} fontSize={{ base: "3xl", sm: "4xl" }}>
+              $80,354.35
+            </Heading>
+            <Text color={"teal.300"}>REWARDS DISTRIBUTED</Text>
+          </Stack>
         </Box>
-        <Box
-            role={'group'}
-            p={6}
-            maxW={'330px'}
-            w={'full'}
-            bg={useColorModeValue('#12131a', 'gray.500')}
-            boxShadow={'2x1'}
-            rounded={'lg'}
-            pos={'relative'}
-            zIndex={1}
-            >
-            <Box 
-                rounded={'lg'}
-                mt={-12}
-                pos={'relative'}
-                height={'230px'}
-                _after={{
-                    transition: 'all .3s ease',
-                    content: '""',
-                    w: 'full',
-                    h: 'full',
-                    pos: 'absolute',
-                    top: 5,
-                    left: 0,
-                    backgroundImage: `url($IMAGE)`,
-                    filter: 'blur(15px)',
-                    zIndex: -1,
-
-                }}
-                _groupHover={{
-                    _after: {
-                        filter: 'blur(20px)',
-                    },
-                }}>
-                <Image 
-                    rounded={'lg'}
-                    height={230}
-                    width={282}
-                    objectFit={'cover'}
-                    src={IMAGE}   
-                />
-            </Box>
-            <Stack pt={10} align={'center'}>
-                <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    24h Transactions
-                </Text>
-                <Heading fontSize={'2x1'} fontFamily={'body'} fontWeight={500}>
-                    245,568
-                </Heading>
-                <Stack direction={'row'} align={'center'}>
-                    <Text fontWeight={800} fontSize={'x1'}>$570,345</Text>
-
-                </Stack>
-
-            </Stack>
-
+        <Box bg={"gray.600"} height="120px" boxShadow="base" p="6" rounded="md">
+          <Stack spacing={6} direction={"column"}>
+            <Heading color={"purple.100"} fontSize={{ base: "3xl", sm: "4xl" }}>
+              34,456
+            </Heading>
+            <Text color={"teal.300"}>TOTAL TRADING PAIRS</Text>
+          </Stack>
         </Box>
-        <Box
-            role={'group'}
-            p={6}
-            maxW={'330px'}
-            w={'full'}
-            bg={useColorModeValue('#12131a', 'gray.500')}
-            boxShadow={'2x1'}
-            rounded={'lg'}
-            pos={'relative'}
-            zIndex={1}
-            >
-            <Box 
-                rounded={'lg'}
-                mt={-12}
-                pos={'relative'}
-                height={'230px'}
-                _after={{
-                    transition: 'all .3s ease',
-                    content: '""',
-                    w: 'full',
-                    h: 'full',
-                    pos: 'absolute',
-                    top: 5,
-                    left: 0,
-                    backgroundImage: `url($IMAGE)`,
-                    filter: 'blur(15px)',
-                    zIndex: -1,
-
-                }}
-                _groupHover={{
-                    _after: {
-                        filter: 'blur(20px)',
-                    },
-                }}>
-                <Image 
-                    rounded={'lg'}
-                    height={230}
-                    width={282}
-                    objectFit={'cover'}
-                    src={IMAGE}   
-                />
-            </Box>
-            <Stack pt={10} align={'center'}>
-                <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    24h Transactions
-                </Text>
-                <Heading fontSize={'2x1'} fontFamily={'body'} fontWeight={500}>
-                    245,568
-                </Heading>
-                <Stack direction={'row'} align={'center'}>
-                    <Text fontWeight={800} fontSize={'x1'}>$570,345</Text>
-
-                </Stack>
-
-            </Stack>
-
+        <Box bg={"gray.600"} height="120px" boxShadow="base" p="6" rounded="md">
+          <Stack spacing={6} direction={"column"}>
+            <Heading color={"purple.100"} fontSize={{ base: "3xl", sm: "4xl" }}>
+              46.37%
+            </Heading>
+            <Text color={"teal.300"}>dICSWP APY</Text>
+          </Stack>
         </Box>
+      </SimpleGrid>
 
-      </Center>
-      
+      <Box
+        bg={"#271e45"}
+        w="100%"
+        h="50%"
+        rounded={"lg"}
+        p={6}
+        shadow="md"
+        borderWidth="1px"
+        borderColor={"gray.600"}
+      >
+        <Text mb={4} color={"gray.500"}>
+          24H MOST TRADED VOLUME
+        </Text>
+        <SimpleGrid
+          minChildWidth="120px"
+          spacing="40px"
+          color={useColorModeValue("gray.50", "gray.200")}
+        >
+          <Flex>
+            <Avatar
+              size={"md"}
+              src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg"
+            />
+            <Box ml="3">
+              <Text fontWeight="bold">WETH</Text>
+              <Text fontSize="sm">
+                $1,500.78
+                <Badge ml="1" colorScheme="green">
+                  23.5%
+                </Badge>
+              </Text>
+            </Box>
+          </Flex>
+          <Flex>
+            <Avatar size={"md"} src="/images/usdc-coin.svg" />
+            <Box ml="3">
+              <Text fontWeight="bold">USDC</Text>
+              <Text fontSize="sm">
+                $1.00
+                <Badge ml="1" colorScheme="green">
+                  34.6%
+                </Badge>
+              </Text>
+            </Box>
+          </Flex>
+          <Flex>
+            <Avatar size={"md"} src="/images/polygon-matic.svg" />
+            <Box ml="3">
+              <Text fontWeight="bold">WMATIC</Text>
+              <Text fontSize="sm">
+                $0.8691
+                <Badge ml="1" colorScheme="green">
+                  0.90%
+                </Badge>
+              </Text>
+            </Box>
+          </Flex>
+          <Flex>
+            <Avatar src="/images/tether-usdt.svg" />
+            <Box ml="3">
+              <Text fontWeight="bold">USDT</Text>
+              <Text fontSize="sm">
+                $1
+                <Badge ml="1" colorScheme="green">
+                  0.05%
+                </Badge>
+              </Text>
+            </Box>
+          </Flex>
+          <Flex>
+            <Avatar src="/images/bee-swap.svg" />
+            <Box ml="3">
+              <Text fontWeight="bold">BSWP</Text>
+              <Text fontSize="sm">
+                $15.89
+                <Badge ml="1" colorScheme="green">
+                  24.7%
+                </Badge>
+              </Text>
+            </Box>
+          </Flex>
+        </SimpleGrid>
+      </Box>
     </Container>
   );
 };
-
