@@ -13,8 +13,10 @@ import {
   Center,
   Flex,
   IconButton,
+  Icon,
+  Spacer,
 } from "@chakra-ui/react";
-import { FaSun } from "react-icons/fa";
+import { FaChevronDown, FaSun } from "react-icons/fa";
 
 function TradeWrapper({ children }) {
   return (
@@ -24,7 +26,7 @@ function TradeWrapper({ children }) {
       borderWidth="1px"
       alignSelf={{ base: "center", lg: "flex-start" }}
       borderColor={useColorModeValue("gray.100", "gray.200")}
-      borderRadius={"xl"}
+      borderRadius={"24px"}
     >
       {children}
     </Box>
@@ -33,7 +35,7 @@ function TradeWrapper({ children }) {
 
 export default function SwapCard() {
   return (
-    <Box py={-4} bg={"#1F1933"} w='100%'>
+    <Box py={-4} bg={"#1F1933"} w="100%">
       <VStack spacing={2} textAlign="center">
         <Heading as="h1" fontSize="4xl" color={"gray.500"}>
           Swap with ease
@@ -44,21 +46,45 @@ export default function SwapCard() {
       </VStack>
       <Stack
         direction={{ base: "column", md: "row" }}
-        textAlign="center"
         justify="center"
         spacing={{ base: 4, lg: 10 }}
         py={10}
       >
         <TradeWrapper>
-         <VStack p={4}>
-          <IconButton icon={<FaSun />} isRound='true' size={'lg'} alignSelf='flex-end'></IconButton>
-          <Heading as={'h2'} size='2xs' color={'gray.100'} fontWeight='bold'>
-            SWAP
-          </Heading>
-          <Box w={'554px'} h={'540px'} border={'1px'}>
+          <VStack p={4} alignItems="stretch" w="100%">
+            <HStack
+              m={6}
+              size="2xs"
+              lineHeight={"24px"}
+              color={"gray.500"}
+              fontWeight="400"
+            >
+              <Text>Currency</Text>
+              <Spacer />
+              <Text>Chain</Text>
+              <Spacer />
+              <Text>Available 500</Text>
+            </HStack>
+            <HStack
+              borderRadius={"10px"}
+              borderWidth={"1px"}
+              m={6}
+              size="2xs"
+              lineHeight={"48px"}
+              color={"gray.500"}
+              fontWeight="400"
+            >
+              <Text>Tether</Text>
+              <IconButton size={"sm"} icon={<FaChevronDown />} isRound="true" />
+              <Spacer />
+              <Text>ETH</Text>
+              <IconButton size={"sm"} icon={<FaChevronDown />} isRound="true" />
+              <Spacer />
+              <Text>0.0</Text>
+            </HStack>
 
-          </Box>
-         </VStack>
+            <Box w={"554px"} h={"540px"} border={"1px"}></Box>
+          </VStack>
         </TradeWrapper>
       </Stack>
     </Box>
