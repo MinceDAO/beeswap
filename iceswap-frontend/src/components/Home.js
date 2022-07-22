@@ -16,14 +16,14 @@ import {
 
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import SwapCard from "./Swap";
+import TradeCard from "./Trade";
 
 export default function Home() {
   return (
     <Box>
       <Navbar />
       <Hero />
-      <SwapCard />
+      <TradeCard />
       <Footer />
     </Box>
   );

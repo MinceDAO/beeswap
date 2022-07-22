@@ -6,15 +6,9 @@ import {
   Text,
   VStack,
   useColorModeValue,
-  List,
-  ListItem,
-  ListIcon,
-  Button,
-  Center,
-  Flex,
   IconButton,
-  Icon,
   Spacer,
+  Avatar,
 } from "@chakra-ui/react";
 import { FaChevronDown, FaSun } from "react-icons/fa";
 
@@ -33,9 +27,9 @@ function TradeWrapper({ children }) {
   );
 }
 
-export default function SwapCard() {
+export default function TradeCard() {
   return (
-    <Box py={-4} bg={"#1F1933"} w="100%">
+    <Box py={-4} bg={"#1F1933"} w="100%" id="tradecard">
       <VStack spacing={2} textAlign="center">
         <Heading as="h1" fontSize="4xl" color={"gray.500"}>
           Swap with ease
@@ -70,17 +64,22 @@ export default function SwapCard() {
               borderWidth={"1px"}
               m={6}
               size="2xs"
-              lineHeight={"48px"}
-              color={"gray.500"}
+              lineHeight={"12px"}
               fontWeight="400"
+              p={2}
             >
-              <Text>Tether</Text>
+              <Avatar size={'sm'} src="/images/tether-usdt.svg" />
+              <Text  color={"gray.100"}>Tether</Text>
               <IconButton size={"sm"} icon={<FaChevronDown />} isRound="true" />
               <Spacer />
-              <Text>ETH</Text>
+              <Avatar
+              size={"sm"}
+              src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg"
+            />
+              <Text  color={"gray.100"}>ETH</Text>
               <IconButton size={"sm"} icon={<FaChevronDown />} isRound="true" />
               <Spacer />
-              <Text>0.0</Text>
+              <Text  color={"gray.100"}>0</Text>
             </HStack>
 
             <Box w={"554px"} h={"540px"} border={"1px"}></Box>

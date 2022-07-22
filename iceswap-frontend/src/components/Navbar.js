@@ -256,6 +256,11 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
+    label: "Swap",
+    href: "#tradecard",
+
+  },
+  {
     label: "Token",
     children: [
       {
