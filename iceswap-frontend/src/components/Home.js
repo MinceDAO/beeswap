@@ -42,7 +42,7 @@ const Hero = () => {
         textAlign={"center"}
         align={"center"}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 15, md: 18 }}
+        py={{ base: 10, md: 18 }}
       >
         <Heading
           lineHeight={1.1}
