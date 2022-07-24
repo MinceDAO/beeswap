@@ -12,11 +12,13 @@ import {
   Center,
   FormControl,
   FormLabel,
+  Container,
 } from "@chakra-ui/react";
 import { FaArrowDown, FaChevronDown, FaSync } from "react-icons/fa";
 
 function TradeWrapper({ children }) {
   return (
+    <Container maxW={'container.sm'}>
     <Box
       mb={4}
       shadow="0px 1px 50px rgba(187, 107, 218, 0.5)"
@@ -27,6 +29,7 @@ function TradeWrapper({ children }) {
     >
       {children}
     </Box>
+    </Container>
   );
 }
 
@@ -49,112 +52,92 @@ export default function TradeCard() {
       >
         <TradeWrapper>
           <Center py={6}>
-            <VStack p={4} alignItems="stretch" w="100%">
-              <FormControl>
-              <Box w={"554px"} h={"540px"} border={"1px"}>
-                <HStack
-                  m={6}
-                  size="2xs"
-                  lineHeight={"24px"}
-                  color={"gray.500"}
-                  fontWeight="400"
-                >
-                  <Text>Currency</Text>
-                  <Spacer />
-                  <Text>Chain</Text>
-                  <Spacer />
-                  <Text>Available 500</Text>
-                </HStack>
-                <HStack
-                  borderRadius={"10px"}
-                  borderWidth={"1px"}
-                  p={2}
-                  m={6}
-                  size="2xs"
-                  lineHeight={"12px"}
-                  fontWeight="400"
-                >
-                  <Avatar size={"sm"} src="/images/tether-usdt.svg" />
-                  <FormLabel color={"gray.100"}>Tether</FormLabel>
-                  <IconButton
-                    size={"xs"}
-                    icon={<FaChevronDown />}
-                    isRound="true"
-                  />
-                  <Spacer />
-                  <Avatar
-                    size={"sm"}
-                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg"
-                  />
-                  <Text color={"gray.100"}>ETH</Text>
-                  <IconButton
-                    size={"xs"}
-                    icon={<FaChevronDown />}
-                    isRound="true"
-                  />
-                  <Spacer />
-                  <Text color={"gray.100"}>0</Text>
-                </HStack>
-
-                <Center py={6}>
-                  <IconButton icon={<FaArrowDown />} size="sm" isRound="true" />
-                </Center>
-
-                <HStack
-                  m={6}
-                  size="2xs"
-                  lineHeight={"24px"}
-                  color={"gray.500"}
-                  fontWeight="400"
-                >
-                  <Text>Currency</Text>
-                  <Spacer />
-                  <Text>Chain</Text>
-                  <Spacer />
-                  <Text>Available 500</Text>
-                </HStack>
-                <HStack
-                  borderRadius={"10px"}
-                  borderWidth={"1px"}
-                  p={2}
-                  m={6}
-                  size="2xs"
-                  lineHeight={"12px"}
-                  fontWeight="400"
-                >
-                  <Avatar size={"sm"} src="/images/matic.svg" />
-                  <Text color={"gray.100"}>MATIC</Text>
-                  <IconButton
-                    size={"xs"}
-                    icon={<FaChevronDown />}
-                    isRound="true"
-                  />
-                  <Spacer />
-                  <Avatar size={"sm"} src="/images/polygon-matic.svg" />
-                  <Text color={"gray.100"}>POLYGON</Text>
-                  <IconButton
-                    size={"xs"}
-                    icon={<FaChevronDown />}
-                    isRound="true"
-                  />
-                  <Spacer />
-                  <Text color={"gray.100"}>0</Text>
-                </HStack>
-
-                <Center py={2}>
-                  <Text color={"gray.500"} m={4}>
-                    I USDT = 2.308 MATIC
+            <VStack p={4} alignItems="stretch" w="full">
+              <form>
+                <Box maxW={"full"} border={"1px"}>
+                  <HStack
+                    m={6}
+                    size="2xs"
+                    lineHeight={"24px"}
+                    color={"gray.500"}
+                    fontWeight="400"
+                  >
+                    <Text>From:</Text>
+                 
+                  </HStack>
+                  <HStack
+                    borderRadius={"10px"}
+                    borderWidth={"1px"}
+                    p={2}
+                    m={6}
+                    size="2xs"
+                    lineHeight={"12px"}
+                    fontWeight="400"
+                  >
+                    <Avatar size={"sm"} src="/images/tether-usdt.svg" />
+                    <FormLabel color={"gray.100"}>Tether</FormLabel>
                     <IconButton
-                      ml={2}
                       size={"xs"}
-                      icon={<FaSync />}
-                      bg={"gray.100"}
+                      icon={<FaChevronDown />}
                       isRound="true"
                     />
-                  </Text>
-                </Center>
-              </Box>
-              </FormControl>
+                    <Spacer />
+
+                    <Text color={"gray.100"}>0</Text>
+                  </HStack>
+
+                  <Center py={6}>
+                    <IconButton
+                      icon={<FaArrowDown />}
+                      size="sm"
+                      isRound="true"
+                    />
+                  </Center>
+
+                  <HStack
+                    m={6}
+                    size="2xs"
+                    lineHeight={"24px"}
+                    color={"gray.500"}
+                    fontWeight="400"
+                  >
+                    <Text>To:</Text>
+                  </HStack>
+                  <HStack
+                    borderRadius={"10px"}
+                    borderWidth={"1px"}
+                    p={2}
+                    m={6}
+                    size="2xs"
+                    lineHeight={"12px"}
+                    fontWeight="400"
+                  >
+                    <Avatar size={"sm"} src="/images/matic.svg" />
+                    <Text color={"gray.100"}>MATIC</Text>
+                    <IconButton
+                      size={"xs"}
+                      icon={<FaChevronDown />}
+                      isRound="true"
+                    />
+                    
+                    <Text color={"gray.100"}>0</Text>
+                  </HStack>
+
+                  <Center py={2}>
+                    <Text color={"gray.500"} m={4}>
+                      I USDT = 2.308 MATIC
+                      <IconButton
+                        ml={2}
+                        size={"xs"}
+                        icon={<FaSync />}
+                        bg={"gray.100"}
+                        isRound="true"
+                      />
+                    </Text>
+                  </Center>
+                  
+                </Box>
+              </form>
             </VStack>
           </Center>
         </TradeWrapper>
