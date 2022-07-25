@@ -13,22 +13,29 @@ import {
   FormControl,
   FormLabel,
   Container,
+  Button,
+  InputGroup,
+  InputLeftElement,
+  Checkbox,
+  Link,
+  Flex,
+  Input,
 } from "@chakra-ui/react";
 import { FaArrowDown, FaChevronDown, FaSync } from "react-icons/fa";
 
 function TradeWrapper({ children }) {
   return (
-    <Container maxW={'container.sm'}>
-    <Box
-      mb={4}
-      shadow="0px 1px 50px rgba(187, 107, 218, 0.5)"
-      borderWidth="1px"
-      alignSelf={{ base: "center", lg: "flex-start" }}
-      borderColor={useColorModeValue("gray.100", "gray.200")}
-      borderRadius={"24px"}
-    >
-      {children}
-    </Box>
+    <Container maxW={"container.sm"}>
+      <Box
+        mb={4}
+        shadow="0px 1px 50px rgba(187, 107, 218, 0.5)"
+        borderWidth="1px"
+        alignSelf={{ base: "center", lg: "flex-start" }}
+        borderColor={useColorModeValue("gray.100", "gray.200")}
+        borderRadius={"24px"}
+      >
+        {children}
+      </Box>
     </Container>
   );
 }
@@ -51,95 +58,59 @@ export default function TradeCard() {
         py={10}
       >
         <TradeWrapper>
-          <Center py={6}>
-            <VStack p={4} alignItems="stretch" w="full">
-              <form>
-                <Box maxW={"full"} border={"1px"}>
-                  <HStack
-                    m={6}
-                    size="2xs"
-                    lineHeight={"24px"}
-                    color={"gray.500"}
-                    fontWeight="400"
-                  >
-                    <Text>From:</Text>
-                 
-                  </HStack>
-                  <HStack
-                    borderRadius={"10px"}
-                    borderWidth={"1px"}
-                    p={2}
-                    m={6}
-                    size="2xs"
-                    lineHeight={"12px"}
-                    fontWeight="400"
-                  >
-                    <Avatar size={"sm"} src="/images/tether-usdt.svg" />
-                    <FormLabel color={"gray.100"}>Tether</FormLabel>
+          <form>
+            <Box p={6} mb={'-12'}>
+              <Flex>
+                <Text p="4" color={"gray.500"}>
+                  From:
+                </Text>
+                <Spacer />
+
+                <Input
+                  color={"gray.100"}
+                  ml="48"
+                  variant={"unstyled"}
+                  value="50%"
+                  type={"text"}
+                  p="4"
+                />
+
+                <Input
+                  variant={"unstyled"}
+                  p="4"
+                  color={"gray.100"}
+                  type={"text"}
+                  value="MAX"
+                />
+              </Flex>
+            </Box>
+            <Box p={6}>
+              <Flex>
+                <Button rounded={'full'} bg={'gray.500'} color={'gray.100'}><Avatar src="../images/matic.svg" size={'sm'} mr='2' /> MATIC</Button>
+              </Flex>
+            </Box>
+
+            <Center py={6}>
+              <VStack p={4} alignItems="stretch" w="full">
+                <Center py={6}>
+                  <IconButton icon={<FaArrowDown />} size="sm" isRound="true" />
+                </Center>
+
+                <Center py={2}>
+                  <Text color={"gray.500"} m={4}>
+                    I USDT = 2.308 MATIC
                     <IconButton
+                      ml={2}
                       size={"xs"}
-                      icon={<FaChevronDown />}
+                      icon={<FaSync />}
+                      bg={"gray.100"}
                       isRound="true"
                     />
-                    <Spacer />
-
-                    <Text color={"gray.100"}>0</Text>
-                  </HStack>
-
-                  <Center py={6}>
-                    <IconButton
-                      icon={<FaArrowDown />}
-                      size="sm"
-                      isRound="true"
-                    />
-                  </Center>
-
-                  <HStack
-                    m={6}
-                    size="2xs"
-                    lineHeight={"24px"}
-                    color={"gray.500"}
-                    fontWeight="400"
-                  >
-                    <Text>To:</Text>
-                  </HStack>
-                  <HStack
-                    borderRadius={"10px"}
-                    borderWidth={"1px"}
-                    p={2}
-                    m={6}
-                    size="2xs"
-                    lineHeight={"12px"}
-                    fontWeight="400"
-                  >
-                    <Avatar size={"sm"} src="/images/matic.svg" />
-                    <Text color={"gray.100"}>MATIC</Text>
-                    <IconButton
-                      size={"xs"}
-                      icon={<FaChevronDown />}
-                      isRound="true"
-                    />
-                    
-                    <Text color={"gray.100"}>0</Text>
-                  </HStack>
-
-                  <Center py={2}>
-                    <Text color={"gray.500"} m={4}>
-                      I USDT = 2.308 MATIC
-                      <IconButton
-                        ml={2}
-                        size={"xs"}
-                        icon={<FaSync />}
-                        bg={"gray.100"}
-                        isRound="true"
-                      />
-                    </Text>
-                  </Center>
-                  
-                </Box>
-              </form>
-            </VStack>
-          </Center>
+                  </Text>
+                </Center>
+              </VStack>
+            </Center>
+          </form>
         </TradeWrapper>
       </Stack>
     </Box>
