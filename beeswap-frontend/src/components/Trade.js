@@ -21,7 +21,7 @@ import {
   Flex,
   Input,
 } from "@chakra-ui/react";
-import { FaArrowDown, FaChevronDown, FaSync } from "react-icons/fa";
+import { FaArrowDown, FaExchangeAlt, FaSyncAlt } from "react-icons/fa";
 
 function TradeWrapper({ children }) {
   return (
@@ -48,7 +48,7 @@ export default function TradeCard() {
           Swap with ease
         </Heading>
         <Text fontSize="lg" color={"gray.500"}>
-          Start your journey of enjoying near-zero swap fees
+          A highly secured and trusted decentralized exchange
         </Text>
       </VStack>
       <Stack
@@ -59,7 +59,7 @@ export default function TradeCard() {
       >
         <TradeWrapper>
           <form>
-            <Box p={6} mb={'-12'}>
+            <Box p={6} mb={"-12"}>
               <Flex>
                 <Text p="4" color={"gray.500"}>
                   From:
@@ -86,23 +86,58 @@ export default function TradeCard() {
             </Box>
             <Box p={6}>
               <Flex>
-                <Button rounded={'full'} bg={'gray.500'} color={'gray.100'}><Avatar src="../images/matic.svg" size={'sm'} mr='2' /> MATIC</Button>
+                <Button rounded={"full"} bg={"gray.500"} color={"gray.100"}>
+                  <Avatar src="../images/matic.svg" size={"sm"} mr="2" /> MATIC
+                </Button>
+              </Flex>
+            </Box>
+
+            <Center py={6}>
+              <IconButton icon={<FaExchangeAlt />} size="sm" isRound="true" />
+            </Center>
+
+            <Box p={6} mb={"-12"}>
+              <Flex>
+                <Text p="4" color={"gray.500"}>
+                  To:
+                </Text>
+                <Spacer />
+
+                <Input
+                  color={"gray.100"}
+                  ml="48"
+                  variant={"unstyled"}
+                  value="50%"
+                  type={"text"}
+                  p="4"
+                />
+
+                <Input
+                  variant={"unstyled"}
+                  p="4"
+                  color={"gray.100"}
+                  type={"text"}
+                  value="MAX"
+                />
+              </Flex>
+            </Box>
+            <Box p={6}>
+              <Flex>
+                <Button rounded={"full"} bg={"gray.500"} color={"gray.100"}>
+                  <Avatar src="../images/tether-usdt.svg" size={"sm"} mr="2" /> Tether
+                </Button>
               </Flex>
             </Box>
 
             <Center py={6}>
               <VStack p={4} alignItems="stretch" w="full">
-                <Center py={6}>
-                  <IconButton icon={<FaArrowDown />} size="sm" isRound="true" />
-                </Center>
-
                 <Center py={2}>
                   <Text color={"gray.500"} m={4}>
                     I USDT = 2.308 MATIC
                     <IconButton
                       ml={2}
                       size={"xs"}
-                      icon={<FaSync />}
+                      icon={<FaSyncAlt />}
                       bg={"gray.100"}
                       isRound="true"
                     />
